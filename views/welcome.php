@@ -13,6 +13,15 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     </head>
     <body>
+        <div class="container">
+            <nav role="navigation" class="nav">
+                <ul class="nav nav-pills">
+                    <li role="presentation" class="active"><a href="/<?php echo FOLDERNAME; ?>/">Profile</a></li>
+                    <li role="presentation"><a href="/<?php echo FOLDERNAME; ?>/tests/premier">Tests</a></li>
+                    <li role="presentation"><a href="/<?php echo FOLDERNAME; ?>/chatbot">ChatBot</a></li>
+                </ul>
+            </nav>
+
         <?php include $this->view;?>
     </body>
 </html>
