@@ -10,6 +10,12 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
+/**
+ * Techno
+ *
+ * @ORM\Table(name="Techno")
+ * @ORM\Entity
+ */
 class Techno
 {
     /**
