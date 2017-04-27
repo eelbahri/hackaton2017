@@ -13,6 +13,15 @@ use Doctrine\ORM\Mapping as ORM;
 class QuestionsRecruit
 {
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="question", type="string", length=500, nullable=false)
@@ -34,33 +43,6 @@ class QuestionsRecruit
     private $type;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="id", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
-     */
-    private $id;
-
-
-
-    /**
-     * Set question
-     *
-     * @param string $question
-     *
-     * @return QuestionsRecruit
-     */
-    public function setQuestion($question)
-    {
-        $this->question = $question;
-
-        return $this;
-    }
-
-    /**
-     * Get question
-     *
      * @return string
      */
     public function getQuestion()
@@ -69,23 +51,15 @@ class QuestionsRecruit
     }
 
     /**
-     * Set orderList
-     *
-     * @param integer $orderList
-     *
-     * @return QuestionsRecruit
+     * @param string $question
      */
-    public function setOrderList($orderList)
+    public function setQuestion($question)
     {
-        $this->orderList = $orderList;
-
-        return $this;
+        $this->question = $question;
     }
 
     /**
-     * Get orderList
-     *
-     * @return integer
+     * @return int
      */
     public function getOrderList()
     {
@@ -93,23 +67,15 @@ class QuestionsRecruit
     }
 
     /**
-     * Set type
-     *
-     * @param integer $type
-     *
-     * @return QuestionsRecruit
+     * @param int $orderList
      */
-    public function setType($type)
+    public function setOrderList($orderList)
     {
-        $this->type = $type;
-
-        return $this;
+        $this->orderList = $orderList;
     }
 
     /**
-     * Get type
-     *
-     * @return integer
+     * @return int
      */
     public function getType()
     {
@@ -117,12 +83,27 @@ class QuestionsRecruit
     }
 
     /**
-     * Get id
-     *
-     * @return integer
+     * @param int $type
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+    }
+
+    /**
+     * @return int
      */
     public function getId()
     {
         return $this->id;
     }
+
+    /**
+     * @param int $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
 }

@@ -71,5 +71,4 @@ class TestAlgoController extends Controller
         json_encode($return);
         return $this->json($return);
     }
-
 }

@@ -4,7 +4,10 @@
         <h1>Administration</h1>
     </div>
     <div class="container">
-        <h2>Questions de Recrutement</h2>
+        <h2 id="parambot">Paramètre bot</h2>
+        <hr>
+        <h3>Questions de Recrutement</h3>
+        <a href="/admin/bot/add-question" class="btn btn-primary">+ Ajouter une Question</a>
         <table class="table table-hover">
             <tr>
                 <th>ID</th>
@@ -12,6 +15,15 @@
                 <th>Type</th>
                 <th>Actions</th>
             </tr>
+            {% for q_r in q_recruit %}
+                <tr>
+                    <td>{{ q_r.id }}</td>
+                    <td>{{ q_r.question }}</td>
+                    <td>Recrutement</td>
+                    <td><a href="/admin/bot/update/{{ q_r.id }}"><span class="glyphicon glyphicon-pencil"></span></a>
+                        <a href="/admin/bot/delete/{{ q_r.id }}"><span class="glyphicon glyphicon-trash"></span></a></td>
+                </tr>
+            {% endfor %}
         </table>
         <nav aria-label="Page navigation" class="text-center">
             <ul class="pagination">
@@ -32,8 +44,7 @@
                 </li>
             </ul>
         </nav>
-        <a href="/admin/NewQuestion" class="btn btn-primary">+ Ajouter une Question</a>
-        <h2>Questions Technologiques</h2>
+        <h3>Questions Technologiques</h3>
         <table class="table table-hover">
             <tr>
                 <th>ID</th>
@@ -41,6 +52,15 @@
                 <th>Type</th>
                 <th>Actions</th>
             </tr>
+            {% for t_r in t_recruit %}
+                <tr>
+                    <td>{{ t_r.id }}</td>
+                    <td>{{ t_r.question }}</td>
+                    <td>Techniques</td>
+                    <td><a href="/admin/bot/update/{{ t_r.id }}"><span class="glyphicon glyphicon-pencil"></span></a>
+                        <a href="/admin/bot/delete/{{ t_r.id }}"><span class="glyphicon glyphicon-trash"></span></a></td>
+                </tr>
+            {% endfor %}
         </table>
         <nav aria-label="Page navigation" class="text-center">
             <ul class="pagination">
@@ -61,7 +81,30 @@
                 </li>
             </ul>
         </nav>
-        <a href="/admin/NewQuestion" class="btn btn-primary">+ Ajouter une Question</a>
+        <hr >
+        <h2 id="paramuser">Paramètre utilisateur</h2>
+        <table class="table table-hover">
+            <tr>
+                <th>ID</th>
+                <th>Nom</th>
+                <th>Facebook</th>
+                <th>Numéro</th>
+                <th>is_active</th>
+            </tr>
+            {% for u in users %}
+                <tr>
+                    <td>{{ u.idUsers }}</td>
+                    <td>{{ u.firstName }}</td>
+                    <td>{{ u.lastName }}</td>
+                    <td>{{ u.idFacebook }}</td>
+                    <td>{{ u.phoneNumber }}</td>
+                    <td>{{ u.isActive }}</td>
+                    <td>
+                        <a href="/admin/profile/{{ u.idUsers }}"><span class="glyphicon glyphicon-calendar"></span></a>
+                        <a href="/admin/user/delete/{{ u.idUsers }}"><span class="glyphicon glyphicon-trash"></span></a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
     </div>
-    <hr >
 {% endblock %}

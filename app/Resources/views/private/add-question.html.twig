@@ -1,1 +1,12 @@
 {% extends 'base.html.twig' %}
+{% block body %}
+    <div class="container">
+        <fieldset>
+            <legend>Formulaire d'ajout d'événement</legend>
+            {{ form_start(form) }}
+            {{ form_errors(form) }}
+            {{ form_widget(form) }}
+            {{ form_end(form) }}
+        </fieldset>
+    </div>
+{% endblock %}

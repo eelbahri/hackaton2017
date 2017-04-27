@@ -43,7 +43,7 @@ class ResponseRecruit
      *
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Users")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_users", referencedColumnName="id_users")
+     * @ORM\JoinColumn(name="id_users", referencedColumnName="id_users")
      * })
      */
     private $idUsers;

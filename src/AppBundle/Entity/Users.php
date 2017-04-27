@@ -63,25 +63,33 @@ class Users
      */
     private $idUsers;
 
-
+    /**
+     * @var datetime
+     *
+     * @ORM\Column(name="data_start", type="datetime")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $dateStart;
 
     /**
-     * Set lastName
+     * @var datetime
      *
-     * @param string $lastName
-     *
-     * @return Users
+     * @ORM\Column(name="data_end", type="datetime")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    public function setLastName($lastName)
-    {
-        $this->lastName = $lastName;
+    private $dateEnd;
 
-        return $this;
+    /**
+     * @return datetime
+     */
+    public function getDateStart()
+    {
+        return $this->dateStart;
     }
 
     /**
-     * Get lastName
-     *
      * @return string
      */
     public function getLastName()
@@ -90,22 +98,14 @@ class Users
     }
 
     /**
-     * Set firstName
-     *
-     * @param string $firstName
-     *
-     * @return Users
+     * @param string $lastName
      */
-    public function setFirstName($firstName)
+    public function setLastName($lastName)
     {
-        $this->firstName = $firstName;
-
-        return $this;
+        $this->lastName = $lastName;
     }
 
     /**
-     * Get firstName
-     *
      * @return string
      */
     public function getFirstName()
@@ -114,22 +114,14 @@ class Users
     }
 
     /**
-     * Set idFacebook
-     *
-     * @param string $idFacebook
-     *
-     * @return Users
+     * @param string $firstName
      */
-    public function setIdFacebook($idFacebook)
+    public function setFirstName($firstName)
     {
-        $this->idFacebook = $idFacebook;
-
-        return $this;
+        $this->firstName = $firstName;
     }
 
     /**
-     * Get idFacebook
-     *
      * @return string
      */
     public function getIdFacebook()
@@ -138,23 +130,15 @@ class Users
     }
 
     /**
-     * Set phoneNumber
-     *
-     * @param integer $phoneNumber
-     *
-     * @return Users
+     * @param string $idFacebook
      */
-    public function setPhoneNumber($phoneNumber)
+    public function setIdFacebook($idFacebook)
     {
-        $this->phoneNumber = $phoneNumber;
-
-        return $this;
+        $this->idFacebook = $idFacebook;
     }
 
     /**
-     * Get phoneNumber
-     *
-     * @return integer
+     * @return int
      */
     public function getPhoneNumber()
     {
@@ -162,22 +146,14 @@ class Users
     }
 
     /**
-     * Set dateBorn
-     *
-     * @param \DateTime $dateBorn
-     *
-     * @return Users
+     * @param int $phoneNumber
      */
-    public function setDateBorn($dateBorn)
+    public function setPhoneNumber($phoneNumber)
     {
-        $this->dateBorn = $dateBorn;
-
-        return $this;
+        $this->phoneNumber = $phoneNumber;
     }
 
     /**
-     * Get dateBorn
-     *
      * @return \DateTime
      */
     public function getDateBorn()
@@ -186,23 +162,15 @@ class Users
     }
 
     /**
-     * Set isActive
-     *
-     * @param integer $isActive
-     *
-     * @return Users
+     * @param \DateTime $dateBorn
      */
-    public function setIsActive($isActive)
+    public function setDateBorn($dateBorn)
     {
-        $this->isActive = $isActive;
-
-        return $this;
+        $this->dateBorn = $dateBorn;
     }
 
     /**
-     * Get isActive
-     *
-     * @return integer
+     * @return int
      */
     public function getIsActive()
     {
@@ -210,12 +178,42 @@ class Users
     }
 
     /**
-     * Get idUsers
-     *
-     * @return integer
+     * @param int $isActive
+     */
+    public function setIsActive($isActive)
+    {
+        $this->isActive = $isActive;
+    }
+
+    /**
+     * @return int
      */
     public function getIdUsers()
     {
         return $this->idUsers;
+    }
+
+    /**
+     * @param int $idUsers
+     */
+    public function setIdUsers($idUsers)
+    {
+        $this->idUsers = $idUsers;
+    }
+
+    /**
+     * @return datetime
+     */
+    public function getDateEnd()
+    {
+        return $this->dateEnd;
+    }
+
+    /**
+     * @param datetime $dateEnd
+     */
+    public function setDateEnd($dateEnd)
+    {
+        $this->dateEnd = $dateEnd;
     }
 }
