@@ -37,4 +37,39 @@ class TestAlgoController extends Controller
             throw $this->createNotFoundException('La page demandé n\'existe pas');
         }
     }
+    /**
+     * @Route("/post/ajax/correctAnswers", name="correct-tests")
+     */
+    public function correctTestsAction(Request $request)
+    {
+        $answers = $_POST['answers'];
+        $correctAnswers = [1, 1, 1];
+        $i = -1;
+        $wrongAnswers = 0;
+
+        if (!$answers) {
+            $return = array('success'=>false);
+            echo json_encode($return);
+
+            exit;
+        }
+
+        foreach ($answers as $answer) {
+            $i++;
+            if ($answer == $correctAnswers[$i]) {
+                continue;
+            }
+            $wrongAnswers++;
+        }
+
+        if($wrongAnswers > 0) {
+            $return = array('success'=>false);
+
+        } else {
+            $return = array('success'=>true);
+        }
+        json_encode($return);
+        return $this->json($return);
+    }
+
 }
