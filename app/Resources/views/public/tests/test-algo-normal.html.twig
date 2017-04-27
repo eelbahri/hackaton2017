@@ -21,6 +21,14 @@
             <div class="alert alert-warning">
                 <strong>Attention!</strong> Vous n'avez pas répondu à toutes les questions
             </div>
+
+            {# Timer #}
+            <div class="progress progress-striped active">
+                <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                </div>
+            </div>
+            {# /Timer #}
+
             <div class="section" id="section1">
                 <div class="slide" id="slide1" data-anchor="slide1">
                     <div class="intro">
@@ -103,8 +111,31 @@
             $('#fullpage').fullpage({
                 anchors:['slide1', 'slide2', 'slide3']
             });
+
+            //Progress Bar
+            var steps = 4; // Get number of questions
+            var step = 100 / steps;
+            function move() {
+                var elem = $('.progress-bar');
+                var width = parseInt(elem.attr('aria-valuenow'));
+                if (width >= 100) {
+                    width = 0;
+                } else {
+                    width = width + step;
+                }
+                elem.css('width', width+'%').attr('aria-valuenow', width);
+            }
+
+            // Progress Bar click
+            $('.fp-next').on('click', function () {
+                move();
+            });
+
+            // Hide left arrow navigation
+            $('.fp-prev').hide();
         });
 
+        // close popup rdv
         $('.close').click(function() {
             $('#popup-overlay').fadeOut('slow');
             $('#popup').fadeOut('fast');
@@ -114,6 +145,7 @@
             $(this).hide();
         });
 
+        // Submit QCM action
         $('button#submitButton').on('click', function () {
             var answers = new Array();
 
@@ -163,7 +195,6 @@
             if(!meets.length) {
                 return
             }
-            // Compare le nombre de questions avec le nombre de questions
 
             $.ajax({
                 url : '/post/ajax/saveMeetAction',
@@ -183,9 +214,6 @@
                     $('.alert-info').show();
                 }
             });
-
-//            Success Message
-
         });
     </script>
 {% endblock %}
