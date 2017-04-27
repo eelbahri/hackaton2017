@@ -10,8 +10,77 @@
     display: none;
 }
 
+body {
+    background: url(/assets/background-qcm.png) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    color: #ffffff;
+}
+
+.logo-qcm {
+    width: 15%;
+}
+
+.logo-qcm-small {
+    margin-top: -150px;
+    width: 10%;
+}
+
+.intitule {
+    margin-bottom: 50px;
+    margin-top: 50px;
+    font-size: 2em;
+}
+
+input[type='radio'] {
+    transform: scale(2);
+    margin-right:20px;
+}
+
+.radio {
+    margin-bottom: 30px;
+}
+
+div .next {
+    text-align: center;
+    border: solid;
+    border-color: white;
+    border-width: 1px;
+    border-radius: 35px;
+    font-size: 2em;
+    width: 350px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 50px;
+    padding-left: 50px;
+}
+
+div .next:hover {
+    background-color: white;
+    color: #445057;
+}
+
+div .right {
+    float: right;
+    margin-right: 150px;
+    margin-top: 10%;
+    margin-bottom: -10%;
+}
+
+.intro p {
+    font-size: 1.3em;
+    margin-bottom: 75px;
+}
+
+.center {
+    display: block;
+    margin: auto;
+}
+
 button {
-    background-color: #d35400;
+    background-color: #fb8234;
     padding: 15px 33px;
     border: 0;
     border-bottom: 2px solid transparent;
@@ -22,7 +91,7 @@ button {
 
 button:hover {
     cursor: pointer;
-    background-color: #e67e22;
+    background-color: #d35400;
 }
 
 button:active {
@@ -42,7 +111,7 @@ button:active {
 
 #popup {
     background-color: #fff;
-    width: 500px; height: 420px;
+    width: 525px; height: 500px;
     margin: -6% auto;
     position: relative;
     display: none;
@@ -50,10 +119,17 @@ button:active {
 }
 
 #popup .headline {
-    background-color: #d35400;
+    height: 80px;
+    background-color: #fb8234;
     padding: 15px;
     color: #fff;
     font-weight: bold;
+    margin-bottom: 50px;
+}
+
+.logo-qcm-popin {
+    width: 25%;
+    position: relative;
 }
 
 #popup .headline > .close {
@@ -68,10 +144,18 @@ button:active {
 }
 
 #popup .content {
+    color: black;
     padding: 15px;
-    height: 343px;
+    height: 525px;
     overflow-y: auto;
-    font: normal 13px Arial;
+    font: normal 20px Arial;
+}
+
+#popup .date {
+    text-align: left;
+    margin-left: 30%;
+    margin-top: 25px;
+    margin-bottom: 25px;
 }
 
 /* Success Message */
