@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="text-center">
+        <h1>Administration</h1>
+    </div>
+    <div class="container">
+        <h2>Questions de Recrutement</h2>
+        <table class="table table-hover">
+            <tr>
+                <th>ID</th>
+                <th>Question</th>
+                <th>Type</th>
+                <th>Actions</th>
+            </tr>
+        </table>
+        <nav aria-label="Page navigation" class="text-center">
+            <ul class="pagination">
+                <li>
+                    <a href="#" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li>
+                    <a href="#" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <a href="/admin/NewQuestion" class="btn btn-primary">+ Ajouter une Question</a>
+        <h2>Questions Technologiques</h2>
+        <table class="table table-hover">
+            <tr>
+                <th>ID</th>
+                <th>Question</th>
+                <th>Type</th>
+                <th>Actions</th>
+            </tr>
+        </table>
+        <nav aria-label="Page navigation" class="text-center">
+            <ul class="pagination">
+                <li>
+                    <a href="#" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li>
+                    <a href="#" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <a href="/admin/NewQuestion" class="btn btn-primary">+ Ajouter une Question</a>
+    </div>
+    <hr >
+{% endblock %}
