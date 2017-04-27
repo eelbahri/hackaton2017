@@ -1,0 +1,75 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * AdminUsers
+ *
+ * @ORM\Table(name="admin_users", uniqueConstraints={@ORM\UniqueConstraint(name="mail", columns={"mail"})})
+ * @ORM\Entity
+ */
+class AdminUsers
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="fisrt_name", type="string", length=255, nullable=false)
+     */
+    private $fisrtName;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="last_name", type="string", length=255, nullable=false)
+     */
+    private $lastName;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="mail", type="string", length=255, nullable=false)
+     */
+    private $mail;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="password", type="text", length=65535, nullable=false)
+     */
+    private $password;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="last_connection", type="datetime", nullable=false)
+     */
+    private $lastConnection = 'CURRENT_TIMESTAMP';
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="last_adress", type="integer", nullable=false)
+     */
+    private $lastAdress;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="is_active", type="boolean", nullable=false)
+     */
+    private $isActive;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_admin_users", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idAdminUsers;
+
+
+}
+

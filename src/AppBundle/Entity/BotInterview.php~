@@ -1,0 +1,57 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * BotInterview
+ *
+ * @ORM\Table(name="bot_interview", indexes={@ORM\Index(name="id_users", columns={"id_users"})})
+ * @ORM\Entity
+ */
+class BotInterview
+{
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date_start", type="datetime", nullable=false)
+     */
+    private $dateStart;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date_end", type="datetime", nullable=false)
+     */
+    private $dateEnd;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="is_active", type="boolean", nullable=false)
+     */
+    private $isActive;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_bot_interview", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idBotInterview;
+
+    /**
+     * @var \AppBundle\Entity\Users
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Users")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_users", referencedColumnName="id_users")
+     * })
+     */
+    private $idUsers;
+
+
+}
+

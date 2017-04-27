@@ -1,0 +1,47 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * QuestionsTechno
+ *
+ * @ORM\Table(name="questions_techno", uniqueConstraints={@ORM\UniqueConstraint(name="orer_list", columns={"order_list"})})
+ * @ORM\Entity
+ */
+class QuestionsTechno
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="question", type="string", length=500, nullable=false)
+     */
+    private $question;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="order_list", type="integer", nullable=false)
+     */
+    private $orderList;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="type", type="integer", nullable=false)
+     */
+    private $type;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+
+}
+

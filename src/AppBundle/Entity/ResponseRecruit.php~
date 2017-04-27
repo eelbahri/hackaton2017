@@ -1,0 +1,53 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * ResponseRecruit
+ *
+ * @ORM\Table(name="response_recruit", indexes={@ORM\Index(name="id_users", columns={"id_users"}), @ORM\Index(name="id_questions", columns={"id_questions"})})
+ * @ORM\Entity
+ */
+class ResponseRecruit
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="response", type="text", length=65535, nullable=false)
+     */
+    private $response;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_response_recruit", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idResponseRecruit;
+
+    /**
+     * @var \AppBundle\Entity\QuestionsRecruit
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\QuestionsRecruit")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_questions", referencedColumnName="id")
+     * })
+     */
+    private $idQuestions;
+
+    /**
+     * @var \AppBundle\Entity\Users
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Users")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_users", referencedColumnName="id_users")
+     * })
+     */
+    private $idUsers;
+
+
+}
+
