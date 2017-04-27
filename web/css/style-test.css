@@ -1,15 +1,3 @@
-.slide {
-    text-align: center;
-}
-
-.slide h1 {
-    padding: 50px;
-}
-
-.alert {
-    display: none;
-}
-
 body {
     background: url(/assets/background-qcm.png) no-repeat center center fixed;
     -webkit-background-size: cover;
@@ -20,17 +8,17 @@ body {
 }
 
 .logo-qcm {
-    width: 15%;
+    width: 15vw;
 }
 
 .logo-qcm-small {
-    margin-top: -150px;
-    width: 10%;
+    margin-top: -50vw;
+    width: 10vw;
 }
 
 .intitule {
     margin-bottom: 50px;
-    margin-top: 50px;
+    margin-top: 0;
     font-size: 2em;
 }
 
@@ -60,13 +48,14 @@ div .next {
 div .next:hover {
     background-color: white;
     color: #445057;
+    cursor: pointer;
 }
 
 div .right {
     float: right;
     margin-right: 150px;
-    margin-top: 10%;
-    margin-bottom: -10%;
+    /*margin-top: 10%;*/
+    /*margin-bottom: -10%;*/
 }
 
 .intro p {
@@ -101,7 +90,9 @@ button:active {
 /* Popup */
 
 #popup-overlay {
-    width: 100%; height: 100%;
+    width: 100%;
+    height: 100%;
+    left: 0;
     background-color: rgba(0, 0, 0, 0.55);
     position: absolute;
     display: none;
@@ -111,7 +102,8 @@ button:active {
 
 #popup {
     background-color: #fff;
-    width: 525px; height: 500px;
+    width: 525px;
+    height: 500px;
     margin: -6% auto;
     position: relative;
     display: none;
@@ -206,14 +198,36 @@ button:active {
     transform: scale(1);
 }
 
-/* Timer */
-#myProgress {
-    width: 100%;
-    background-color: grey;
-}
-#myBar {
-    width: 1%;
-    height: 30px;
-    background-color: green;
+.slide {
+    text-align: center;
+    width: 100vw;
 }
 
+.slide h1 {
+    padding: 50px;
+}
+
+.navbar{
+    display: none;
+}
+
+#start:hover{
+    cursor: pointer;
+}
+
+#slideshow{
+    width: 100%;
+    overflow: hidden;
+}
+
+#slideshow .slide {
+    display: inline-block;
+}
+
+#quests {
+    width: calc(100vw * 5);
+}
+
+.alert {
+    display: none;
+}
