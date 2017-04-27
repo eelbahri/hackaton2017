@@ -54,7 +54,7 @@
                     <div id="popup-overlay"></div>
                     <div id="popup">
                         <div class="headline">
-                            Choisisser une date de rendez-vous
+                            <h3>Choisisser une date de rendez-vous</h3>
                             <span class="close"><i class="fa fa-times"></i></span>
                         </div>
                         <div class="content">
@@ -79,6 +79,18 @@
                         </div>
                     </div>
                     <!-- End Popup -->
+                    <!-- Success Message -->
+                    <div class="success-message" style="display: none">
+                        <svg viewBox="0 0 76 76" class="success-message__icon icon-checkmark">
+                            <circle cx="38" cy="38" r="36"/>
+                            <path fill="none" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M17.7,40.9l10.9,10.9l28.7-28.7"/>
+                        </svg>
+                        <h1 class="success-message__title">Rendez-vous validé</h1>
+                        <div class="success-message__content">
+                            <p>Nous vous remercions pour votre participation</p>
+                        </div>
+                    </div>
+                    <!-- END Success Message -->
                     <button class="btn btn-default" style="width: 250px; height: 150px; font-size: 2em" id="submitButton">Envoyer</button>
                 </div>
 
@@ -124,7 +136,6 @@
                 success : function(data) {
                     $('button#submitButton').prop('disabled', true);
                     if (data.success) {
-                        $('.alert-success').show();
                         // Animate Popup
                         $('#popup-overlay').fadeIn('fast');
                         $('#popup').fadeIn('slow');
@@ -164,12 +175,16 @@
                 success : function(data) {
                     $('#popup-overlay').fadeOut('slow');
                     $('#popup').fadeOut('fast');
+                    $('.success-message').fadeIn('slow');
+                    $('#submitButton').fadeOut('fast');
                 },
                 error : function(request,error)
                 {
                     $('.alert-info').show();
                 }
             });
+
+//            Success Message
 
         });
     </script>
