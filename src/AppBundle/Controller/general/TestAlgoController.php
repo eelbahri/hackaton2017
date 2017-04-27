@@ -69,6 +69,21 @@ class TestAlgoController extends Controller
             $return = array('success'=>true);
         }
         json_encode($return);
+
+        return $this->json($return);
+    }
+
+    /**
+     * @Route("/post/ajax/saveMeetAction", name="save-meet")
+     */
+    public function saveMeetAction(Request $request)
+    {
+        $answers = $_POST['meets'];
+
+        $return = array('success'=>$answers);
+
+        json_encode($return);
+
         return $this->json($return);
     }
 }

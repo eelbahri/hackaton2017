@@ -22,46 +22,81 @@
                 <strong>Attention!</strong> Vous n'avez pas répondu à toutes les questions
             </div>
             <div class="section" id="section1">
-                <div class="slide" id="slide1" data-anchor="slide1" style="background-color: orangered">
+                <div class="slide" id="slide1" data-anchor="slide1">
                     <div class="intro">
                         <h1>Questionnaire Algo Facile</h1>
                     </div>
                 </div>
 
-                <div class="slide" id="slide2" data-anchor="slide2" style="background-color: forestgreen">
+                <div class="slide" id="slide2" data-anchor="slide2">
                     <h2>Quel est l'opérateur capable de stocker une valeur dans une variable ?</h2>
                     <label class="radio"><input type="radio" name="optradio1" value="1">/</label>
                     <label class="radio"><input type="radio" name="optradio1" value="2">*</label>
                     <label class="radio"><input type="radio" name="optradio1" value="3">=</label>
                 </div>
 
-                <div class="slide" id="slide3" data-anchor="slide3" style="background-color: yellow">
+                <div class="slide" id="slide3" data-anchor="slide3">
                     <h2>Comment s'appelle l'action qui soustrait un d'une variable ?</h2>
-                    <label class="radio"><input type="radio" name="optradio2" value="1">incrémentation</label>
-                    <label class="radio"><input type="radio" name="optradio2" value="2">décrémentation</label>
-                    <label class="radio"><input type="radio" name="optradio2" value="3">comparaison</label>
+                    <label class="radio"><input type="radio" name="optradio2" value="1">Incrémentation</label>
+                    <label class="radio"><input type="radio" name="optradio2" value="2">Décrémentation</label>
+                    <label class="radio"><input type="radio" name="optradio2" value="3">Comparaison</label>
                 </div>
 
-                <div class="slide" id="slide4" data-anchor="slide4" style="background-color: cornflowerblue">
+                <div class="slide" id="slide4" data-anchor="slide4">
                     <h2>Parmi les éléments suivants, quel est celui qui permet de stocker une valeur ?</h2>
-                    <label class="radio"><input type="radio" name="optradio3" value="1">constante</label>
-                    <label class="radio"><input type="radio" name="optradio3" value="2">variable</label>
-                    <label class="radio"><input type="radio" name="optradio3" value="3">expression</label>
+                    <label class="radio"><input type="radio" name="optradio3" value="1">Opérateur</label>
+                    <label class="radio"><input type="radio" name="optradio3" value="2">Variable</label>
+                    <label class="radio"><input type="radio" name="optradio3" value="3">Expression</label>
                 </div>
 
-                <div class="slide" id="slide5" data-anchor="slide5" style="background-color: coral">
-                    <button class="btn btn-default" id="submitButton">Envoyer</button>
+                <div class="slide" id="slide5" data-anchor="slide5">
+                    <!-- Begin Popup -->
+                    <div id="popup-overlay"></div>
+                    <div id="popup">
+                        <div class="headline">
+                            <h3>Choisisser une date de rendez-vous</h3>
+                            <span class="close"><i class="fa fa-times"></i></span>
+                        </div>
+                        <div class="content">
+                            <form>
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <label><input type="checkbox" value="Option 1">Option 1</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <label><input type="checkbox" value="Option 2">Option 2</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <label><input type="checkbox" value="Option 3">Option 3</label>
+                                    </div>
+                                </div>
+                                <button type="submit" id="submitRdv">Envoyer</button>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- End Popup -->
+                    <!-- Success Message -->
+                    <div class="success-message" style="display: none">
+                        <svg viewBox="0 0 76 76" class="success-message__icon icon-checkmark">
+                            <circle cx="38" cy="38" r="36"/>
+                            <path fill="none" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="M17.7,40.9l10.9,10.9l28.7-28.7"/>
+                        </svg>
+                        <h1 class="success-message__title">Rendez-vous validé</h1>
+                        <div class="success-message__content">
+                            <p>Nous vous remercions pour votre participation</p>
+                        </div>
+                    </div>
+                    <!-- END Success Message -->
+                    <button class="btn btn-default" style="width: 250px; height: 150px; font-size: 2em" id="submitButton">Envoyer</button>
                 </div>
 
             </div>
         </div>
     </div>
-
-    <style>
-        .alert {
-            display: none;
-        }
-    </style>
 
     <script>
         $(document).ready(function() {
@@ -70,18 +105,22 @@
             });
         });
 
+        $('.close').click(function() {
+            $('#popup-overlay').fadeOut('slow');
+            $('#popup').fadeOut('fast');
+        });
+
         $('.alert').on('click', function () {
             $(this).hide();
         });
 
-        $('button#submitButton').on('click', function (e) {
+        $('button#submitButton').on('click', function () {
             var answers = new Array();
 
             $('input:checked').each(function () {
                 answers.push($(this).val());
             });
-            console.log(answers.length);
-            // Compare le nombre questions avec le nombre de questions
+            // Compare le nombre de questions avec le nombre de questions
             if (answers.length != $('div.slide h2').length) {
                 $('.alert-warning').show();
                 return;
@@ -97,7 +136,9 @@
                 success : function(data) {
                     $('button#submitButton').prop('disabled', true);
                     if (data.success) {
-                        $('.alert-success').show();
+                        // Animate Popup
+                        $('#popup-overlay').fadeIn('fast');
+                        $('#popup').fadeIn('slow');
                     } else {
                         $('.alert-danger').show();
                     }
@@ -109,6 +150,42 @@
             });
 
         });
-        // ANIMATE BUTTON
+
+
+//        RDV SUBMIT BUTTON
+        $('button#submitRdv').on('click', function () {
+            var meets = new Array();
+
+            $('.content input:checked').each(function() {
+                meets.push($(this).attr('value'));
+            });
+
+            if(!meets.length) {
+                return
+            }
+            // Compare le nombre de questions avec le nombre de questions
+
+            $.ajax({
+                url : '/post/ajax/saveMeetAction',
+                type : 'POST',
+                data : {
+                    'meets' : meets
+                },
+                dataType:'json',
+                success : function(data) {
+                    $('#popup-overlay').fadeOut('slow');
+                    $('#popup').fadeOut('fast');
+                    $('.success-message').fadeIn('slow');
+                    $('#submitButton').fadeOut('fast');
+                },
+                error : function(request,error)
+                {
+                    $('.alert-info').show();
+                }
+            });
+
+//            Success Message
+
+        });
     </script>
 {% endblock %}
