@@ -10,6 +10,13 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
+/**
+ * qcm
+ *
+ * @ORM\Table(name="qcm")
+ * @ORM\Entity
+ */
+
 class QCM
 {
     /**

@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="container">
+        <h1 class="text-center">Gestion des QCM</h1>
+        <div class="row">
+            <h2>Listes des QCM</h2>
+            <input href="" class="btn btn-primary" type="submit" value="+ Créer un QCM" />
+            <table class="table table-hover">
+                <tr>
+                    <th>ID</th>
+                    <th>Techno</th>
+                    <th>Name</th>
+                    <th>Durée (minutes)</th>
+                    <th>Actions</th>
+                </tr>
+                {% for qcm in list_qcm %}
+                    <tr>
+                        <td>{{ qcm.idQCM }}</td>
+                        <td>{{ qcm.idTechno.name }}</td>
+                        <td>{{ qcm.name }}</td>
+                        <td>{{ qcm.time }}</td>
+                        <td>
+                            <a href="/admin/qcm-settings/edit/{{ qcm.idQCM }}"><span class="glyphicon glyphicon-pencil"></span></a>
+                            <a href="/admin/qcm-settings/delete/{{ qcm.idQCM }}"><span class="glyphicon glyphicon-trash"></span></a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+{% endblock %}
