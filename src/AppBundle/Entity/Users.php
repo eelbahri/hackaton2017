@@ -13,6 +13,15 @@ use Doctrine\ORM\Mapping as ORM;
 class Users
 {
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_users", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idUsers;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="last_name", type="string", length=255, nullable=false)
@@ -34,6 +43,20 @@ class Users
     private $idFacebook;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="mail", type="string", length=255, nullable=false)
+     */
+    private $mail;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="genre", type="boolean", nullable=false)
+     */
+    private $genre;
+
+    /**
      * @var integer
      *
      * @ORM\Column(name="phone_number", type="integer", nullable=false)
@@ -48,6 +71,23 @@ class Users
     private $dateBorn;
 
     /**
+     * @ORM\Column(name="motivation", type="text", nullable=true)
+     */
+    private $motivation;
+
+    /**
+     * @ORM\Column(name="experience", type="text", nullable=true)
+     */
+    private $experience;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="status", type="integer", nullable=false)
+     */
+    private $status;
+
+    /**
      * @var integer
      *
      * @ORM\Column(name="is_active", type="integer", nullable=false)
@@ -55,38 +95,19 @@ class Users
     private $isActive;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="id_users", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @return int
      */
-    private $idUsers;
-
-    /**
-     * @var datetime
-     *
-     * @ORM\Column(name="data_start", type="datetime")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
-     */
-    private $dateStart;
-
-    /**
-     * @var datetime
-     *
-     * @ORM\Column(name="data_end", type="datetime")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
-     */
-    private $dateEnd;
-
-    /**
-     * @return datetime
-     */
-    public function getDateStart()
+    public function getIdUsers()
     {
-        return $this->dateStart;
+        return $this->idUsers;
+    }
+
+    /**
+     * @param int $idUsers
+     */
+    public function setIdUsers($idUsers)
+    {
+        $this->idUsers = $idUsers;
     }
 
     /**
@@ -138,6 +159,38 @@ class Users
     }
 
     /**
+     * @return string
+     */
+    public function getMail()
+    {
+        return $this->mail;
+    }
+
+    /**
+     * @param string $mail
+     */
+    public function setMail($mail)
+    {
+        $this->mail = $mail;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isGenre()
+    {
+        return $this->genre;
+    }
+
+    /**
+     * @param bool $genre
+     */
+    public function setGenre($genre)
+    {
+        $this->genre = $genre;
+    }
+
+    /**
      * @return int
      */
     public function getPhoneNumber()
@@ -170,6 +223,54 @@ class Users
     }
 
     /**
+     * @return mixed
+     */
+    public function getMotivation()
+    {
+        return $this->motivation;
+    }
+
+    /**
+     * @param mixed $motivation
+     */
+    public function setMotivation($motivation)
+    {
+        $this->motivation = $motivation;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getExperience()
+    {
+        return $this->experience;
+    }
+
+    /**
+     * @param mixed $experience
+     */
+    public function setExperience($experience)
+    {
+        $this->experience = $experience;
+    }
+
+    /**
+     * @return int
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * @param int $status
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+    }
+
+    /**
      * @return int
      */
     public function getIsActive()
@@ -183,37 +284,5 @@ class Users
     public function setIsActive($isActive)
     {
         $this->isActive = $isActive;
-    }
-
-    /**
-     * @return int
-     */
-    public function getIdUsers()
-    {
-        return $this->idUsers;
-    }
-
-    /**
-     * @param int $idUsers
-     */
-    public function setIdUsers($idUsers)
-    {
-        $this->idUsers = $idUsers;
-    }
-
-    /**
-     * @return datetime
-     */
-    public function getDateEnd()
-    {
-        return $this->dateEnd;
-    }
-
-    /**
-     * @param datetime $dateEnd
-     */
-    public function setDateEnd($dateEnd)
-    {
-        $this->dateEnd = $dateEnd;
     }
 }

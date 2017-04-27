@@ -10,12 +10,12 @@
             </div>
             <div class="col-lg-4">
                 <ul style="list-style-type: none;">
-                    <li><strong>Nom : </strong></li>
-                    <li><strong>Prénom : </strong></li>
-                    <li><strong>Téléphone : </strong></li>
-                    <li><strong>Mail : </strong> </li>
-                    <li><strong>Etat : </strong> </li>
-                    <li><strong><span class=" glyphicon glyphicon-calendar"></span> : </strong> </li>
+                    <li><strong>Nom : </strong> {{ user.firstName }}</li>
+                    <li><strong>Prénom : </strong> {{ user.lastname }}</li>
+                    <li><strong>Téléphone : </strong> {{ user.phoneNumber }}</li>
+                    <li><strong>Mail : </strong> {{ user.mail }}</li>
+                    <li><strong>Etat : </strong> {{ user.status }}</li>
+                    <li><strong><span class=" glyphicon glyphicon-calendar"></span> : </strong></li>
                 </ul>
             </div>
             <div class="col-lg-4 text-right">

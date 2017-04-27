@@ -106,7 +106,7 @@ class AdminController extends Controller
     }
 
     /**
-     * @Route("/admin/profile/{id_users}/", name="pofile-recruitement")
+     * @Route("/admin/profile/{id_users}/", name="profile-recruitement")
      */
     public function deleteUsersAction(Request $request,$id_users)
     {
