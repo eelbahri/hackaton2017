@@ -177,9 +177,9 @@ $(document).ready(function() {
     });
 
     function stopQuiz() {
-        $('#popup-overlay').fadeIn('fast');
-        $('#popup').fadeIn('slow');
-        $('.content-timeout').fadeIn('slow');
+        // $('#popup-overlay').fadeIn('fast');
+        // $('#popup').fadeIn('slow');
+        // $('.content-timeout').fadeIn('slow');
     }
 
     $('input:radio').css('position','relative');
