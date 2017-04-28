@@ -3,6 +3,7 @@ $(document).ready(function() {
     var count = 1200;
     var min  = 0;
     var secs = 0;
+    var progress = 0;
 
     var w = $(window).width();
 
@@ -32,7 +33,10 @@ $(document).ready(function() {
 		}
         test++;
         lock = true;
-
+        console.log(progress);
+        progress = progress + 33;
+        console.log(progress);
+        $('.progress-bar').css('width', progress+'%').attr('aria-valuenow', progress);
         $("#quests").animate({
 			marginLeft : -w*test
 		}, 1000,
@@ -79,7 +83,12 @@ $(document).ready(function() {
         } else {
             secs = count % 60;
         }
-        return secs;
+
+        if(secs >= 0 && secs < 10) {
+            return "0"+secs;
+        } else {
+            return secs;
+        }
     }
 
 })

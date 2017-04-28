@@ -93,7 +93,7 @@ button:active {
     width: 100%;
     height: 100%;
     left: 0;
-    background-color: rgba(0, 0, 0, 0.55);
+    background-color: rgba(0, 0, 0, 0.5@@5);
     position: absolute;
     display: none;
     z-index: 1;
@@ -230,4 +230,11 @@ button:active {
 
 .alert {
     display: none;
+}
+
+#timer {
+    position: absolute;
+    font-size: 30px;
+    font-weight: 400;
+    color: rgb(92, 92, 91);
 }
