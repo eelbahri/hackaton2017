@@ -18,12 +18,18 @@ $(document).ready(function() {
         next();
     })
 
+    var i = 0;
     $(".next").click(function(){
         if($(this).hasClass('finish')) {
-            $("#popup-overlay").show();
-            $("#popup").show();
             return;
         }
+
+        if($('input:checked').length == i) {
+            i++;
+        } else {
+            return;
+        }
+
         next();
     })
     var test = 0;
@@ -33,9 +39,7 @@ $(document).ready(function() {
 		}
         test++;
         lock = true;
-        console.log(progress);
         progress = progress + 33;
-        console.log(progress);
         $('.progress-bar').css('width', progress+'%').attr('aria-valuenow', progress);
         $("#quests").animate({
 			marginLeft : -w*test
@@ -90,5 +94,74 @@ $(document).ready(function() {
             return secs;
         }
     }
+
+    // Submit QCM action
+    $('.finish').on('click', function () {
+        var answers = new Array();
+
+        $('input:checked').each(function () {
+            answers.push($(this).val());
+        });
+
+        if (answers.length != $('.intitule').length) {
+            return;
+        }
+
+        $.ajax({
+            url : '/post/ajax/correctAnswers',
+            type : 'POST',
+            data : {
+                'answers' : answers
+            },
+            dataType:'json',
+            success : function(data) {
+                if (data.success) {
+                    // Animate Popup
+                    $('#popup-overlay').fadeIn('fast');
+                    $('#popup').fadeIn('slow');
+                    $('.content-success').fadeIn('slow');
+                } else {
+                    // Animate Popup
+                    $('#popup-overlay').fadeIn('fast');
+                    $('#popup').fadeIn('slow');
+                    $('.content-fail').fadeIn('slow');                }
+            },
+            error : function(request,error)
+            {
+                $('.alert-info').show();
+            }
+        });
+
+    });
+
+
+    //        RDV SUBMIT BUTTON
+    $('#submitRdv').on('click', function () {
+        var meets = new Array();
+
+        $('.content-success input:checked').each(function() {
+            meets.push($(this).attr('value'));
+        });
+
+        if(!meets.length) {
+            return
+        }
+
+        $.ajax({
+            url : '/post/ajax/saveMeetAction',
+            type : 'POST',
+            data : {
+                'meets' : meets
+            },
+            dataType:'json',
+            success : function(data) {
+                $('.content-success').fadeOut('fast');
+                $('.content-rdv-success').fadeIn('slow');
+            },
+            error : function(request,error)
+            {
+            }
+        });
+    });
 
 })

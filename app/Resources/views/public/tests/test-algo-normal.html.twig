@@ -53,9 +53,11 @@
                     <div class="slide" id="slide2" data-anchor="slide2">
                         <img class="logo-qcm-small" src="/assets/logo-qcm.png" alt="">
                         <h2 class="intitule">Quel est l'opérateur capable de stocker une valeur dans une variable ?</h2>
-                        <label class="radio"><input type="radio" name="optradio1" value="1"><span>/</span></label>
-                        <label class="radio"><input type="radio" name="optradio1" value="2"><span>*</span></label>
-                        <label class="radio"><input type="radio" name="optradio1" value="3"><span>=</span></label>
+                        <div class="answers">
+                                <label class="radio"><input type="radio" name="optradio1" value="1">/</label>
+                                <label class="radio"><input type="radio" name="optradio1" value="2">*</label>
+                                <label class="radio"><input type="radio" name="optradio1" value="3">=</label>
+                        </div>
                         <div class="next right">
                             Question suivante
                         </div>
@@ -65,9 +67,11 @@
                     <div class="slide" id="slide3" data-anchor="slide3">
                         <img class="logo-qcm-small" src="/assets/logo-qcm.png" alt="">
                         <h2 class="intitule">Comment s'appelle l'action qui soustrait un d'une variable ?</h2>
-                        <label class="radio"><input type="radio" name="optradio2" value="1"><span>Incrémentation</span></label>
-                        <label class="radio"><input type="radio" name="optradio2" value="2"><span>Décrémentation</span></label>
-                        <label class="radio"><input type="radio" name="optradio2" value="3"><span>Comparaison</span></label>
+                        <div class="answers">
+                            <label class="radio"><input type="radio" name="optradio2" value="1"><span>Incrémentation</span></label>
+                            <label class="radio"><input type="radio" name="optradio2" value="2"><span>Décrémentation</span></label>
+                            <label class="radio"><input type="radio" name="optradio2" value="3"><span>Comparaison</span></label>
+                        </div>
                         <div class="next right">
                             Question suivante
                         </div>
@@ -80,7 +84,7 @@
                             <div class="headline">
                                 <img class="logo-qcm-popin" src="/assets/logo-qcm.png" alt="">
                             </div>
-                            <div class="content">
+                            <div class="content-success">
                                 <p>
                                     Félicitations ! <br>
                                     Vous avez passé les tests avec succès. <br>
@@ -95,13 +99,32 @@
                                 </div>
                                 <button type="submit" id="submitRdv">Envoyer</button>
                             </div>
+                            <div class="content-fail">
+                                <img src="/assets/red_circle.png" alt="">
+                                <p>
+                                    Nous sommes navrés mais vous n'avez pas obtenu un score suffisant à ces tests techniques.
+                                    <br>
+                                    Merci de repostuler ultérieurement. <br>
+                                    N'hésitez pas à contacter Ruby pour plus d'informations
+                                </p>
+                            </div>
+                            <div class="content-rdv-success">
+                                <img src="/assets/Tick_Mark_Circle.png" alt="">
+                                <p>
+                                    Votre rendez-vous est validé !
+                                    <br>
+                                    Vous recevrez un e-mail de confirmation d'ici quelques minutes.
+                                </p>
+                            </div>
                         </div>
                         {# / POPUP #}
                         <img class="logo-qcm-small" src="/assets/logo-qcm.png" alt="">
                         <h2 class="intitule">Parmi les éléments suivants, quel est celui qui permet de stocker une valeur ?</h2>
-                        <label class="radio"><input type="radio" name="optradio4" value="1"><span>Opérateur</span></label>
-                        <label class="radio"><input type="radio" name="optradio4" value="2"><span>Variable</span></label>
-                        <label class="radio"><input type="radio" name="optradio4" value="3"><span>Expression</span></label>
+                        <div class="answers">
+                            <label class="radio"><input type="radio" name="optradio4" value="1"><span>Opérateur</span></label>
+                            <label class="radio"><input type="radio" name="optradio4" value="2"><span>Variable</span></label>
+                            <label class="radio"><input type="radio" name="optradio4" value="3"><span>Expression</span></label>
+                        </div>
                         <div class="next right finish">
                             Terminé
                         </div>

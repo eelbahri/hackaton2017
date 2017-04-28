@@ -5,6 +5,7 @@ body {
     -o-background-size: cover;
     background-size: cover;
     color: #ffffff;
+    user-select: none;
 }
 
 .logo-qcm {
@@ -12,7 +13,7 @@ body {
 }
 
 .logo-qcm-small {
-    margin-top: -50vw;
+    margin-top: -30vw;
     width: 10vw;
 }
 
@@ -25,6 +26,8 @@ body {
 input[type='radio'] {
     transform: scale(2);
     margin-right:20px;
+    margin-top: -1px;
+    vertical-align: middle;
 }
 
 .radio {
@@ -93,7 +96,7 @@ button:active {
     width: 100%;
     height: 100%;
     left: 0;
-    background-color: rgba(0, 0, 0, 0.5@@5);
+    background-color: rgba(0, 0, 0, 0.55);
     position: absolute;
     display: none;
     z-index: 1;
@@ -135,12 +138,31 @@ button:active {
     cursor: pointer;
 }
 
-#popup .content {
+#popup .content-success {
+    display: none;
     color: black;
     padding: 15px;
     height: 525px;
     overflow-y: auto;
     font: normal 20px Arial;
+}
+
+#popup .content-fail {
+    display: none;
+    color: black;
+    padding: 15px;
+    height: 525px;
+    overflow-y: auto;
+    font: normal 24px Arial;
+}
+
+#popup .content-rdv-success {
+    display: none;
+    color: black;
+    padding: 15px;
+    height: 525px;
+    overflow-y: auto;
+    font: normal 24px Arial;
 }
 
 #popup .date {
@@ -205,6 +227,10 @@ button:active {
 
 .slide h1 {
     padding: 50px;
+}
+
+.slide .answers {
+    font-size: 1.8em;
 }
 
 .navbar{

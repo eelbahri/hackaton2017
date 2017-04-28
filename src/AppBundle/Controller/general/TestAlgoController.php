@@ -43,7 +43,7 @@ class TestAlgoController extends Controller
     public function correctTestsAction(Request $request)
     {
         $answers = $_POST['answers'];
-        $correctAnswers = [1, 1, 1];
+        $correctAnswers = [3, 2, 2];
         $i = -1;
         $wrongAnswers = 0;
 
