@@ -29,6 +29,13 @@ class QuestionsRecruit
     private $question;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="response", type="string", length=500,nullable=true)
+     */
+    private $response = null;
+
+    /**
      * @var integer
      *
      * @ORM\Column(name="order_list", type="integer", nullable=true)
@@ -104,6 +111,22 @@ class QuestionsRecruit
     public function setId($id)
     {
         $this->id = $id;
+    }
+
+    /**
+     * @return string
+     */
+    public function getResponse()
+    {
+        return $this->response;
+    }
+
+    /**
+     * @param string $response
+     */
+    public function setResponse($response)
+    {
+        $this->response = $response;
     }
 
 }
