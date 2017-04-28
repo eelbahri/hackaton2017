@@ -19,6 +19,7 @@ class QCMController extends Controller
 {
     /**
      * @Route("/admin/qcm-settings/", name="qcm_settings")
+     * Espace des paramètre QCM
      */
     public function adminAction(Request $request)
     {
@@ -33,6 +34,7 @@ class QCMController extends Controller
 
     /**
      * @Route("/admin/add-qcm/", name="qcm_add")
+     *  Ajouter un nouveau QCM
      */
     public function addQCMAction(Request $request)
     {
@@ -53,6 +55,7 @@ class QCMController extends Controller
 
     /**
      * @Route("/admin/qcm-settings/delete/{id_qcm}/", name="qcm_delete")
+     *  Suppression d'un QCM
      */
     public function deleteQCMAction(Request $request,$id_qcm)
     {
@@ -72,6 +75,7 @@ class QCMController extends Controller
 
     /**
      * @Route("/admin/qcm-settings/edit/{id_qcm}/", name="qcm_update")
+     *  Edition d'un QCM
      */
     public function editQCMAction(Request $request,$id_qcm)
     {

@@ -18,6 +18,8 @@ class AdminController extends Controller
 {
     /**
      * @Route("/admin/", name="homepage_admin")
+     *
+     * Permet l'affichage des tableaux
      */
     public function adminAction(Request $request)
     {
@@ -40,6 +42,9 @@ class AdminController extends Controller
     }
     /**
      * @Route("/admin/bot/add-question/", name="add-question_bot")
+     *
+     *
+     * Ajout d'une question
      */
     public function addQuestionAction(Request $request)
     {
@@ -95,6 +100,8 @@ class AdminController extends Controller
     }
     /**
      * @Route("/admin/bot/delete/{id_question}/", name="delete-question_bot")
+     *
+     * Suppresssion d'une Question
      */
     public function deleteQuestionAction(Request $request,$id_question)
     {
@@ -114,6 +121,8 @@ class AdminController extends Controller
 
     /**
      * @Route("/admin/bot/update/{id_question}/", name="update-question_bot")
+     *
+     * Mise à jour des questions
      */
     public function updateQuestionAction(Request $request,$id_question)
     {
@@ -171,6 +180,8 @@ class AdminController extends Controller
 
     /**
      * @Route("/admin/profile/{id_users}/", name="profile-recruitement")
+     *
+     * Suppression d'un utilisateur
      */
     public function deleteUsersAction(Request $request,$id_users)
     {
