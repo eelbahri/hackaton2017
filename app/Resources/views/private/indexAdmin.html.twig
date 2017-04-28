@@ -48,15 +48,19 @@
         <table class="table table-hover">
             <tr>
                 <th>ID</th>
-                <th>Question</th>
+                <th>Questions</th>
+                <th>Réponses</th>
                 <th>Type</th>
+                <th>QCM</th>
                 <th>Actions</th>
             </tr>
             {% for t_r in t_recruit %}
                 <tr>
                     <td>{{ t_r.id }}</td>
                     <td>{{ t_r.question }}</td>
+                    <td>{{ t_r.response }}</td>
                     <td>Techniques</td>
+                    <td>QCM</td>
                     <td><a href="/admin/bot/update/{{ t_r.id }}"><span class="glyphicon glyphicon-pencil"></span></a>
                         <a href="/admin/bot/delete/{{ t_r.id }}"><span class="glyphicon glyphicon-trash"></span></a></td>
                 </tr>

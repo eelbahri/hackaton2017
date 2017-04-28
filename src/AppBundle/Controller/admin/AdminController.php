@@ -62,6 +62,13 @@ class AdminController extends Controller
                 ),
                 'label' => 'Question'
             ))
+            ->add('response',TextType::class,array(
+                'attr' => array(
+                    'class' => 'form-control'
+                ),
+                'label' => 'Réponse à la question',
+                'required' => false
+            ))
             ->add('save', SubmitType::class, array(
                 'label' => 'Ajouter Question',
                 'attr' => array(
@@ -103,6 +110,63 @@ class AdminController extends Controller
         $em->remove($question);
         $em->flush();
         return $this->redirectToRoute('homepage_admin');
+    }
+
+    /**
+     * @Route("/admin/bot/update/{id_question}/", name="update-question_bot")
+     */
+    public function updateQuestionAction(Request $request,$id_question)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $question = $em->getRepository('AppBundle:QuestionsRecruit')->find($id_question);
+
+        $form = $this->createFormBuilder($question)
+            ->add('type',ChoiceType::class,array(
+                'attr' => array(
+                    'class' => 'form-control'
+                ),
+                'choices' => array(
+                    'Recrutement' => 0,
+                    'Technique' => 1,
+                ),
+                'label' => 'Type de question'
+            ))
+            ->add('question',TextType::class,array(
+                'attr' => array(
+                    'class' => 'form-control'
+                ),
+                'label' => 'Question'
+            ))
+            ->add('response',TextType::class,array(
+                'attr' => array(
+                    'class' => 'form-control'
+                ),
+                'label' => 'Réponse à la question',
+                'required' => false
+            ))
+            ->add('save', SubmitType::class, array(
+                'label' => 'Modifier',
+                'attr' => array(
+                    'class' => 'btn btn-success'
+                )
+            ))
+            ->getForm();
+
+        if ($request->isMethod('POST')) {
+            $form->handleRequest($request);
+            if ($form->isValid()) {
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($question);
+                $em->flush();
+                $request->getSession()->getFlashBag()->add('notice', 'La question à bien été enregisté.');
+                return $this->redirectToRoute('homepage_admin');
+            }
+        }
+
+        return $this->render('private/add-question.html.twig', [
+            'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..').DIRECTORY_SEPARATOR,
+            'form' => $form->createView(),
+        ]);
     }
 
     /**

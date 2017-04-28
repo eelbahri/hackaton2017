@@ -29,14 +29,12 @@ class QCM
     private $idQCM;
 
     /**
-     * @var \AppBundle\Entity\Techno
+     * @var \string
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Techno")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_techno", referencedColumnName="id_techno")
+     * @ORM\Column(name="techno", type="string", nullable=false)
      * })
      */
-    private $idTechno;
+    private $techno;
 
     /**
      * @var \string
@@ -69,19 +67,19 @@ class QCM
     }
 
     /**
-     * @return int
+     * @return string
      */
-    public function getIdTechno()
+    public function getTechno()
     {
-        return $this->idTechno;
+        return $this->techno;
     }
 
     /**
-     * @param int $idTechno
+     * @param string $techno
      */
-    public function setIdTechno($idTechno)
+    public function setTechno($techno)
     {
-        $this->idTechno = $idTechno;
+        $this->techno = $techno;
     }
 
     /**
