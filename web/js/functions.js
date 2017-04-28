@@ -14,7 +14,7 @@ $(document).ready(function() {
     // $("#slide4").hide();
 
     $("#start").click(function() {
-        var counter=setInterval(timer, 1000); //1000 will  run it every 1 second
+        var counter = setInterval(timer, 1000); //1000 will  run it every 1 second
         next();
     })
 
@@ -55,22 +55,28 @@ $(document).ready(function() {
 
     function timer()
     {
-        count = count-1;
-        min = getMinutes(count);
-        secs = getSecondes(count);
-
         if (count <= 0)
         {
             clearInterval(counter);
-            // stopQuiz();
+            min = 0;
+            secs = 0;
+            document.getElementById("timer").innerHTML = min+":" +secs;
             return;
         }
+
+        count = count-1;
+        min = getMinutes(count);
+        secs = getSecondes(count);
 
         document.getElementById("timer").innerHTML = min+":" +secs;
     }
 
     function getMinutes(count)
     {
+        if (count === 0) {
+            min = 0;
+            return min;
+        }
         if (count >= 60) {
             var modulo = count % 60;
             min = (count - modulo) / 60
@@ -82,6 +88,10 @@ $(document).ready(function() {
 
     function getSecondes(count)
     {
+        if (count === 0) {
+            secs = 0;
+            return secs;
+        }
         if (count <= 60) {
             secs = count;
         } else {
