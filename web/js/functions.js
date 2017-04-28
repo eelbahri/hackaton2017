@@ -182,4 +182,6 @@ $(document).ready(function() {
         $('.content-timeout').fadeIn('slow');
     }
 
+    $('input:radio').css('position','relative');
+
 })
