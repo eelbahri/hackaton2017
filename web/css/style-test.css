@@ -114,6 +114,7 @@ button:active {
 }
 
 #popup .headline {
+    text-align: center;
     height: 80px;
     background-color: #fb8234;
     padding: 15px;
@@ -157,6 +158,16 @@ button:active {
 }
 
 #popup .content-rdv-success {
+    display: none;
+    color: black;
+    padding: 15px;
+    height: 525px;
+    overflow-y: auto;
+    font: normal 24px Arial;
+}
+
+#popup .content-timeout {
+    text-align: center;
     display: none;
     color: black;
     padding: 15px;

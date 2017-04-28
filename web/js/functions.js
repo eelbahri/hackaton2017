@@ -57,6 +57,7 @@ $(document).ready(function() {
     {
         if (count <= 0)
         {
+            stopQuiz();
             clearInterval(counter);
             min = 0;
             secs = 0;
@@ -134,7 +135,8 @@ $(document).ready(function() {
                     // Animate Popup
                     $('#popup-overlay').fadeIn('fast');
                     $('#popup').fadeIn('slow');
-                    $('.content-fail').fadeIn('slow');                }
+                    $('.content-fail').fadeIn('slow');
+                }
             },
             error : function(request,error)
             {
@@ -173,5 +175,11 @@ $(document).ready(function() {
             }
         });
     });
+
+    function stopQuiz() {
+        $('#popup-overlay').fadeIn('fast');
+        $('#popup').fadeIn('slow');
+        $('.content-timeout').fadeIn('slow');
+    }
 
 })
